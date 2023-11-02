@@ -1,0 +1,48 @@
+#kivy 1.8.1
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+
+<Classifier>:
+    GridLayout:
+        rows: 5
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 0
+            Rectangle:
+                size: root.size
+                pos: root.pos
+        margin: (root.width / 50)
+        #margin: 0
+        #pos_hint: {'center_x':.5, 'center_y':.5}
+        Camera:
+            id: 0
+            resolution: (640,480)
+            play: True
+            allow_stretch: True
+        GridLayout:
+            cols: 2
+            Button:
+                id: 1
+                text: "Take picture"
+                on_press: root.take_picture()
+            Button:
+                id: 2
+                text: "Attach image"
+                on_press: root.attach_image()
+        GridLayout:
+            cols: 2
+            Label:
+                id: 3
+                text: "Loaded image"
+            Image:
+                id: 4
+        GridLayout:
+            cols: 2
+            Button:
+                id: 5
+                text: "Get result"
+                on_press: root.get_result()
+            Label:
+                id: 6
+                text: "Not known yet"
+                background_color: 1, 0, 0, 1
